@@ -11,6 +11,7 @@ const forecast = (latitude, longitude, callback) => {
         if (data.error) {
             callback(data.error)
         } else {
+            console.log(data.current);
             const temperature = data.current;
             callback(null, temperature);
         }

@@ -55,12 +55,12 @@ app.get('/weather', (req, res) => {
         if (error) {
             return res.send({ error });
         }
-        forecast(latitude, longitude, (error, { temperature, feelslike } = {}) => {
+        forecast(latitude, longitude, (error, { temperature, feelslike,humidity } = {}) => {
             if (error) {
                 return res.send(error);
             }
             res.send({
-                forecast: `It is currently ${temperature} out, It feels like ${feelslike} degress out`,
+                forecast: `現在${address}溫度為攝氏${temperature}度，濕度為${humidity}%, 體感溫度為攝氏${feelslike}度`,
                 location,
                 address
             })
